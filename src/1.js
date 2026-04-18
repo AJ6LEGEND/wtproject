@@ -39,6 +39,8 @@ const Home = () => {
         <NavLink to="/infrastructure">Infrastructure</NavLink>
         <NavLink to="/news">News</NavLink>
         <NavLink to="/healthcare">Healthcare</NavLink>
+        <NavLink to="/digidocs">DigiDocs</NavLink>
+        <NavLink to="/environment">AQI</NavLink>
       </nav>
 
       <header className="hero">
@@ -70,9 +72,9 @@ const Home = () => {
 
       <section className="shortcuts">
         {}
-        <Link to="/error" className="tile">🗺️ City Map</Link>
+        <Link to="/map" className="tile">🗺️ City Map</Link>
         <Link to="/weather" className="tile">🌤️ Weather</Link>
-        <Link to="/error" className="tile">📄 DigiDocs</Link>
+        <Link to="/digidocs" className="tile">📄 DigiDocs</Link>
         <Link to="/games" className="tile">🎮 Games</Link>
         <Link to="/healthcare" className="tile">🏥 Healthcare</Link>
       </section>

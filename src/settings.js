@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './WT2.css';
 
 const Settings = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     displayName: 'Advait',
     email: 'advait@mumbaiconnect.in',
@@ -41,6 +42,8 @@ const Settings = () => {
         <NavLink to="/infrastructure">Infrastructure</NavLink>
         <NavLink to="/news">News</NavLink>
         <NavLink to="/healthcare">Healthcare</NavLink>
+        <NavLink to="/digidocs">DigiDocs</NavLink>
+        <NavLink to="/environment">AQI</NavLink>
       </nav>
 
       <div className="container">
@@ -99,7 +102,12 @@ const Settings = () => {
         <h2>Account Management</h2>
         <div className="account-actions">
           <button className="btn-secondary">Add / Switch Account</button>
-          <button className="btn-danger">Logout</button>
+          <button
+            className="btn-danger"
+            onClick={() => navigate('/login')}
+          >
+            Logout
+          </button>
         </div>
       </div>
     </div>

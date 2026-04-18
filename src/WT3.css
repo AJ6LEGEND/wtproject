@@ -248,3 +248,216 @@
   align-items: center;
   justify-content: center;
 }
+.digi-wrapper {
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: Arial, sans-serif;
+}
+
+.digi-wrapper .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.digi-wrapper h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 0.3rem;
+}
+
+.digi-wrapper .digi-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Document Grid ── */
+.digi-wrapper .digi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Document Card ── */
+.digi-wrapper .digi-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.4rem;
+}
+
+.digi-wrapper .digi-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.digi-wrapper .digi-icon {
+  font-size: 1.8rem;
+}
+
+.digi-wrapper .digi-card h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.digi-wrapper .digi-status {
+  font-size: 0.78rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.digi-wrapper .digi-status.uploaded {
+  color: #1e8449;
+  font-weight: 600;
+}
+
+.digi-wrapper .digi-card-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.digi-wrapper .digi-btn-view {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #4a90d9;
+  background: white;
+  color: #4a90d9;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.digi-wrapper .digi-btn-view:hover:not(:disabled) {
+  background: #4a90d9;
+  color: white;
+}
+
+.digi-wrapper .digi-btn-download {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  background: #4a90d9;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.digi-wrapper .digi-btn-download:hover:not(:disabled) {
+  background: #357abd;
+}
+
+.digi-wrapper .digi-btn-view:disabled,
+.digi-wrapper .digi-btn-download:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Inline View Panel ── */
+.digi-wrapper .digi-view-panel {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.digi-wrapper .digi-view-panel p {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+
+.digi-wrapper .digi-view-close {
+  margin-top: 0.8rem;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: #555;
+}
+
+.digi-wrapper .digi-view-close:hover {
+  background: #f0f0f0;
+}
+
+/* ── Upload Section ── */
+.digi-wrapper .digi-upload-section {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.digi-wrapper .digi-upload-section h3 {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-bottom: 1.2rem;
+}
+
+.digi-wrapper .digi-upload-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.digi-wrapper .digi-upload-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.digi-wrapper .digi-upload-field select,
+.digi-wrapper .digi-upload-field input[type="text"] {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.digi-wrapper .digi-upload-field select:focus,
+.digi-wrapper .digi-upload-field input[type="text"]:focus {
+  outline: none;
+  border-color: #4a90d9;
+}
+
+.digi-wrapper .digi-upload-field input[type="file"] {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.digi-wrapper .digi-upload-error {
+  font-size: 0.82rem;
+  color: red;
+}
+
+.digi-wrapper .digi-submit-btn {
+  background: #4a90d9;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.digi-wrapper .digi-submit-btn:hover {
+  background: #357abd;
+}
+
+.digi-wrapper .digi-upload-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}

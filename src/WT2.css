@@ -141,3 +141,146 @@
   gap: 1rem;
   margin-top: 1.5rem;
 }
+.login-wrapper {
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* ── Card ── */
+.login-wrapper .auth-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-wrapper .auth-card h2 {
+  font-size: 1.6rem;
+  color: #1a1a2e;
+  margin-bottom: 0.3rem;
+}
+
+.login-wrapper .auth-card p {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1.8rem;
+}
+
+/* ── Tabs ── */
+.login-wrapper .auth-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.8rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.login-wrapper .auth-tab {
+  flex: 1;
+  padding: 0.6rem;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #888;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.login-wrapper .auth-tab.active {
+  color: #4a90d9;
+  border-bottom: 3px solid #4a90d9;
+  font-weight: 600;
+}
+
+/* ── Form Fields ── */
+.login-wrapper .auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.login-wrapper .auth-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.login-wrapper .auth-field input,
+.login-wrapper .auth-field select {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.login-wrapper .auth-field input:focus,
+.login-wrapper .auth-field select:focus {
+  outline: none;
+  border-color: #4a90d9;
+}
+
+/* ── Error ── */
+.login-wrapper .auth-error {
+  font-size: 0.82rem;
+  color: red;
+  margin-top: 0.2rem;
+}
+
+/* ── Forgot Password ── */
+.login-wrapper .forgot-link {
+  font-size: 0.82rem;
+  color: #4a90d9;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+/* ── Submit ── */
+.login-wrapper .auth-btn {
+  width: 100%;
+  background: #4a90d9;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.login-wrapper .auth-btn:hover {
+  background: #357abd;
+}
+
+/* ── Success box ── */
+.login-wrapper .auth-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Info box (forgot password) ── */
+.login-wrapper .auth-info {
+  background: #e8f4fd;
+  color: #1a5fa8;
+  border: 1px solid #b8d9f5;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}

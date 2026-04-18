@@ -14,7 +14,10 @@ import Games from './games';
 import Settings from './settings';
 import Infrastructure from './infrastructure';
 import News from './news';
-import Healthcare from './healthcare'; // If you created this earlier
+import Healthcare from './healthcare';
+import DigiDocs from './digidocs'; 
+import Login from './login';
+import Environment from './environment';
 import ErrorPage from './error';
 
 function App() {
@@ -36,7 +39,9 @@ function App() {
           <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/news" element={<News />} />
           <Route path="/healthcare" element={<Healthcare />} />
-
+          <Route path="/digidocs"       element={<DigiDocs />} />
+          <Route path="/login"          element={<Login />} />
+          <Route path="/environment"  element={<Environment />} />
           {/* Error / 404 Page */}
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<ErrorPage />} /> 

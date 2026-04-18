@@ -1,0 +1,354 @@
+.health-wrapper {
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: Arial, sans-serif;
+}
+
+.health-wrapper .container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.health-wrapper h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 0.3rem;
+}
+
+.health-wrapper .health-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Map Placeholder ── */
+.health-wrapper .health-map-placeholder {
+  background: #e8f4fd;
+  border: 2px dashed #4a90d9;
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.health-wrapper .health-map-placeholder .map-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.health-wrapper .health-map-placeholder p {
+  color: #1a5fa8;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.health-wrapper .health-map-placeholder .map-note {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* ── Hospital Cards ── */
+.health-wrapper .health-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.health-wrapper .health-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.4rem;
+}
+
+.health-wrapper .health-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.health-wrapper .health-rank {
+  background: #4a90d9;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  white-space: nowrap;
+}
+
+.health-wrapper .health-info {
+  flex: 1;
+}
+
+.health-wrapper .health-info h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin: 0 0 0.2rem 0;
+}
+
+.health-wrapper .health-area {
+  font-size: 0.82rem;
+  color: #888;
+  margin: 0;
+}
+
+/* ── Emergency Badges ── */
+.health-wrapper .badge-emergency {
+  background: #fdecea;
+  color: #c0392b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.health-wrapper .badge-no-emergency {
+  background: #f0f0f0;
+  color: #888;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── Speciality Tags ── */
+.health-wrapper .health-specialities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.health-wrapper .spec-tag {
+  background: #eafaf1;
+  color: #1e8449;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* ── Card Footer ── */
+.health-wrapper .health-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.health-wrapper .health-contact {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.health-wrapper .health-expand-btn {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.health-wrapper .health-expand-btn:hover {
+  background: #f0f0f0;
+}
+
+/* ── Expanded Panel ── */
+.health-wrapper .health-expanded {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.health-wrapper .health-expanded p {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+.env-wrapper {
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: Arial, sans-serif;
+}
+
+.env-wrapper .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.env-wrapper h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 0.3rem;
+}
+
+.env-wrapper .env-subtitle {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.env-wrapper .env-section-title {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin: 2.5rem 0 1rem 0;
+}
+
+/* ── Big AQI Hero ── */
+.env-wrapper .env-aqi-hero {
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.env-wrapper .aqi-bg-good     { background: #eafaf1; border: 2px solid #27ae60; }
+.env-wrapper .aqi-bg-moderate { background: #fef9e7; border: 2px solid #f1c40f; }
+.env-wrapper .aqi-bg-poor     { background: #fdecea; border: 2px solid #e74c3c; }
+
+.env-wrapper .env-aqi-city {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.env-wrapper .env-aqi-number {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+
+.env-wrapper .aqi-bg-good     .env-aqi-number { color: #1e8449; }
+.env-wrapper .aqi-bg-moderate .env-aqi-number { color: #b7770d; }
+.env-wrapper .aqi-bg-poor     .env-aqi-number { color: #c0392b; }
+
+.env-wrapper .env-aqi-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  margin: 0.8rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.env-wrapper .aqi-label-good     { background: #27ae60; color: white; }
+.env-wrapper .aqi-label-moderate { background: #f1c40f; color: #333; }
+.env-wrapper .aqi-label-poor     { background: #e74c3c; color: white; }
+
+.env-wrapper .env-aqi-tip {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* ── Map Placeholder ── */
+.env-wrapper .env-map-placeholder {
+  background: #e8f4fd;
+  border: 2px dashed #4a90d9;
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.env-wrapper .env-map-placeholder .map-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.env-wrapper .env-map-placeholder p {
+  color: #1a5fa8;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.env-wrapper .env-map-placeholder .map-note {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* ── Zone Grid ── */
+.env-wrapper .env-zone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.env-wrapper .env-zone-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.env-wrapper .zone-name {
+  font-size: 0.82rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.env-wrapper .zone-aqi {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.env-wrapper .zone-good     .zone-aqi { color: #1e8449; }
+.env-wrapper .zone-moderate .zone-aqi { color: #b7770d; }
+.env-wrapper .zone-poor     .zone-aqi { color: #c0392b; }
+
+.env-wrapper .zone-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.env-wrapper .badge-good     { background: #eafaf1; color: #1e8449; }
+.env-wrapper .badge-moderate { background: #fef9e7; color: #b7770d; }
+.env-wrapper .badge-poor     { background: #fdecea; color: #c0392b; }
+
+/* ── SGNP Cards ── */
+.env-wrapper .env-sgnp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.env-wrapper .env-sgnp-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.2rem;
+}
+
+.env-wrapper .sgnp-icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.env-wrapper .env-sgnp-card h4 {
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  margin: 0 0 0.5rem 0;
+}
+
+.env-wrapper .env-sgnp-card p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+}

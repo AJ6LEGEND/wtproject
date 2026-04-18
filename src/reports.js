@@ -60,6 +60,8 @@ const Reports = () => {
         <NavLink to="/infrastructure">Infrastructure</NavLink>
         <NavLink to="/news">News</NavLink>
         <NavLink to="/healthcare">Healthcare</NavLink>
+        <NavLink to="/digidocs">DigiDocs</NavLink>
+        <NavLink to="/environment">AQI</NavLink>
       </nav>
 
       <div className="container">
