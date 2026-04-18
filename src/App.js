@@ -21,6 +21,8 @@ import Login from './login';
 import Environment from './environment';
 import PublicSafety from './safety';
 import CityMap from './map';
+import Education from './education';
+import SchoolEvents from './events';
 import ErrorPage from './error';
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
               <NavLink to="/infrastructure">Infrastructure</NavLink>
               <NavLink to="/digidocs">DigiDocs</NavLink>
               <NavLink to="/reports">Citizen Reports</NavLink>
+              <NavLink to="/education">School</NavLink>
             </div>
           </div>
 
@@ -53,6 +56,7 @@ function App() {
               <NavLink to="/weather">Weather</NavLink>
               <NavLink to="/environment">Environment (AQI)</NavLink>
               <NavLink to="/news">News & Alerts</NavLink>
+              <NavLink to="/events">Educational Events</NavLink>
             </div>
           </div>
 
@@ -95,6 +99,8 @@ function App() {
           <Route path="/environment"  element={<Environment />} />
           <Route path="/safety" element={<PublicSafety />} />
           <Route path="/map" element={<CityMap />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/events" element={<SchoolEvents />} />
           
           {/* Error / 404 Page */}
           <Route path="/error" element={<ErrorPage />} />

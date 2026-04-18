@@ -48,3 +48,159 @@
 .styled-list li {
   margin-bottom: 0.8rem;
 }
+/* =========================================
+   EDUCATION HUB WRAPPER (.education-hub)
+========================================= */
+.education-hub .filter-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+
+.education-hub .filter-bar select {
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.education-hub .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.education-hub .edu-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  position: relative;
+  border-bottom: 4px solid #0056b3; /* Blue accent at the bottom */
+  transition: transform 0.3s ease;
+}
+
+.education-hub .edu-card:hover {
+  transform: translateY(-8px);
+}
+
+.education-hub .rating-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #fff3cd;
+  color: #856404;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border: 1px solid #ffeeba;
+}
+
+.education-hub .address {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+/* =========================================
+   COMPETITIONS PORTAL WRAPPER (.competitions-portal)
+========================================= */
+.competitions-portal .filter-tabs {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.competitions-portal .tab-btn {
+  padding: 0.7rem 1.8rem;
+  border: 2px solid #0056b3;
+  background: white;
+  color: #0056b3;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.competitions-portal .tab-btn.active, 
+.competitions-portal .tab-btn:hover {
+  background: #0056b3;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,86,179,0.3);
+}
+
+.competitions-portal .event-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.competitions-portal .event-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  border-left: 6px solid #28a745; /* Green for events */
+}
+
+.competitions-portal .event-date {
+  text-align: center;
+  padding-right: 2rem;
+  border-right: 2px solid #f1f1f1;
+  min-width: 90px;
+}
+
+.competitions-portal .date-box { 
+  font-size: 2rem; 
+  font-weight: 800; 
+  display: block; 
+  color: #333;
+  line-height: 1;
+}
+
+.competitions-portal .month-box { 
+  font-size: 0.9rem; 
+  text-transform: uppercase; 
+  color: #0056b3; 
+  letter-spacing: 1px;
+}
+
+.competitions-portal .event-info { 
+  flex: 1; 
+  padding-left: 2rem; 
+}
+
+.competitions-portal .cat-tag { 
+  font-size: 0.7rem; 
+  background: #e9ecef; 
+  color: #495057; 
+  padding: 4px 10px; 
+  border-radius: 6px; 
+  margin-left: 10px; 
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.competitions-portal .register-btn {
+  background: #0056b3;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.competitions-portal .register-btn:hover {
+  background: #004494;
+}
