@@ -1,0 +1,353 @@
+/* --- 1. Global Reset & React Setup --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Slightly more modern than Arial */
+}
+
+/* Ensures the React app covers the full screen */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f7f6;
+}
+
+/* --- 2. Navigation (React Router Optimized) --- */
+nav {
+  background: #0056b3;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+/* React Router's NavLink automatically applies the 'active' class */
+nav a.active {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* --- 3. Hero Section --- */
+.hero {
+  background-color: #e9ecef;
+  /* Use the dark gradient + the image path */
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./Mumbai_Skyline_Wide.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+  /* Ensures the hero section has enough height to show the image */
+  min-height: 400px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#live-clock {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  font-family: monospace;
+}
+
+/* --- 4. Home Page Stats & Shortcuts --- */
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 2.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 2.2rem;
+  color: #0056b3;
+}
+
+.shortcuts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tile {
+  background: #17a2b8;
+  color: white;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  background: #138496;
+}
+
+/* --- 5. General Container & Grids --- */
+.container {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Generic Card Styles (Used in News/Infra) */
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- 6. Forms & Interaction --- */
+.basic-form, .feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+input, textarea, select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+
+.btn-primary {
+  background: #0056b3;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* --- 7. Utility Classes --- */
+.badge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.bg-success { background-color: #28a745; }
+.bg-warning { background-color: #ffc107; color: #333; }
+.bg-danger { background-color: #dc3545; }
+
+/* Scrollbar styling for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #0056b3;
+  border-radius: 10px;
+}
+/* ── Page Layout ── */
+.weather-wrapper {
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: Arial, sans-serif;
+}
+
+.weather-wrapper .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.weather-wrapper h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Main Weather Card ── */
+.weather-widget {
+  background: linear-gradient(135deg, #4a90d9, #1a5fa8);
+  border-radius: 12px;
+  padding: 2rem;
+  color: white;
+}
+
+.current-weather {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* ── Temperature Block ── */
+.temp-block h1 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.temp-block p {
+  font-size: 1.1rem;
+  margin-top: 0.3rem;
+  opacity: 0.9;
+}
+
+/* ── Details Grid ── */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+}
+
+.details-grid div strong {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+
+.details-grid div p {
+  margin: 0.2rem 0 0 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* ── 7-Day Forecast ── */
+.weather-wrapper h3 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.forecast-strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.forecast-day {
+  background: white;
+  border: 1px solid #dde3ea;
+  border-radius: 10px;
+  padding: 1rem 0.75rem;
+  text-align: center;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.forecast-day h4 {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.forecast-day p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.forecast-day p:first-of-type {
+  font-size: 1.6rem;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap');
+
+.error-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 2rem;
+  margin: 0;
+}
+
+.error-page h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10rem;
+  color: #e94560;
+  line-height: 1;
+  letter-spacing: 4px;
+}
+
+.error-page p {
+  font-size: 1.2rem;
+  color: #a8b2c8;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.error-page button {
+  background: #e94560;
+  color: white;
+  border: none;
+  padding: 0.8rem 2.2rem;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+
+.error-page button:hover {
+  background: #c73652;
+}
