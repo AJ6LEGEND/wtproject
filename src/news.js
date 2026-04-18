@@ -48,21 +48,7 @@ const News = () => {
 
   return (
     <div className="news-wrapper">
-      <nav>
-        <NavLink to="/" end>Home</NavLink>
-        <NavLink to="/about">About Us</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/weather">Weather</NavLink>
-        <NavLink to="/reports">Reports</NavLink>
-        <NavLink to="/games">Games</NavLink>
-        <NavLink to="/settings">Settings</NavLink>
-        <NavLink to="/infrastructure">Infrastructure</NavLink>
-        <NavLink to="/news">News</NavLink>
-        <NavLink to="/healthcare">Healthcare</NavLink>
-        <NavLink to="/healthcare">Healthcare</NavLink>
-        <NavLink to="/digidocs">DigiDocs</NavLink>
-        <NavLink to="/environment">AQI</NavLink>
-      </nav>
+
 
       <div className="container">
         <h2>📰 News & Announcements</h2>

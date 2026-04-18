@@ -1,0 +1,50 @@
+/* --- Map Placeholder Styles --- */
+.map-placeholder {
+  background-color: #f8f9fa;
+  border: 3px dashed #ced4da;
+  border-radius: 12px;
+  padding: 6rem 2rem; /* Makes it tall to simulate a map */
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+.map-placeholder h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+/* A smaller version for the Safety page */
+.map-placeholder.map-small {
+  padding: 3rem 2rem;
+}
+
+/* --- Safety Page Layout --- */
+.safety-content {
+  display: flex;
+  flex-wrap: wrap; /* Allows it to stack on small screens */
+  gap: 2rem;
+}
+
+.safety-card {
+  flex: 1; /* Makes both cards take up equal space */
+  min-width: 300px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-top: 4px solid #0056b3; /* Nice blue accent line at the top */
+}
+
+/* --- Clean List Styles --- */
+.styled-list {
+  margin-top: 1rem;
+  line-height: 1.8;
+  color: #333;
+  padding-left: 1.5rem;
+}
+
+.styled-list li {
+  margin-bottom: 0.8rem;
+}
