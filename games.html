@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mumbai Portal - Games</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <nav>
+        <a href="1.html">Home</a>
+        <a href="2.html">About Us</a>
+        <a href="3.html">Contact</a>
+        <a href="weather.html">Weather</a>
+        <a href="reports.html">Reports</a>
+        <a href="games.html">Games</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <div class="container">
+        <h2>The Ultimate Mumbai Quiz</h2>
+        <p style="margin-bottom: 2rem;">Test your knowledge about the city of dreams!</p>
+
+        <form id="quizForm" class="quiz-container">
+            <div class="quiz-q">
+                <p><strong>1. Which station is the northern terminus of the Western Railway suburban network?</strong></p>
+                <label><input type="radio" name="q1" value="wrong"> Virar</label><br>
+                <label><input type="radio" name="q1" value="correct"> Dahanu Road</label><br>
+                <label><input type="radio" name="q1" value="wrong"> Palghar</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>2. What was the original name of Veermata Jijabai Bhosale Udyan (Byculla Zoo)?</strong></p>
+                <label><input type="radio" name="q2" value="wrong"> Albert Gardens</label><br>
+                <label><input type="radio" name="q2" value="wrong"> Edward Park</label><br>
+                <label><input type="radio" name="q2" value="correct"> Victoria Gardens</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>3. Which of these was NOT one of the original Seven Islands of Bombay?</strong></p>
+                <label><input type="radio" name="q3" value="wrong"> Parel</label><br>
+                <label><input type="radio" name="q3" value="wrong"> Mahim</label><br>
+                <label><input type="radio" name="q3" value="correct"> Trombay</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>4. In which year did the first passenger train run between Bori Bunder and Thane?</strong></p>
+                <label><input type="radio" name="q4" value="wrong"> 1857</label><br>
+                <label><input type="radio" name="q4" value="correct"> 1853</label><br>
+                <label><input type="radio" name="q4" value="wrong"> 1881</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>5. What is the former name of the historic August Kranti Maidan?</strong></p>
+                <label><input type="radio" name="q5" value="correct"> Gowalia Tank Maidan</label><br>
+                <label><input type="radio" name="q5" value="wrong"> Cross Maidan</label><br>
+                <label><input type="radio" name="q5" value="wrong"> Esplanade</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>6. The Elephanta Caves are situated on an island originally known by local fishermen as:</strong></p>
+                <label><input type="radio" name="q6" value="correct"> Gharapuri</label><br>
+                <label><input type="radio" name="q6" value="wrong"> Khanderi</label><br>
+                <label><input type="radio" name="q6" value="wrong"> Butcher Island</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>7. Which architect designed the Chhatrapati Shivaji Maharaj Terminus (CSMT)?</strong></p>
+                <label><input type="radio" name="q7" value="wrong"> George Wittet</label><br>
+                <label><input type="radio" name="q7" value="correct"> F.W. Stevens</label><br>
+                <label><input type="radio" name="q7" value="wrong"> John Begg</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>8. Which of these lakes is situated entirely within the Mumbai city limits?</strong></p>
+                <label><input type="radio" name="q8" value="wrong"> Tansa</label><br>
+                <label><input type="radio" name="q8" value="wrong"> Bhatsa</label><br>
+                <label><input type="radio" name="q8" value="correct"> Tulsi</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>9. Mumbai’s oldest surviving standing fort structure is:</strong></p>
+                <label><input type="radio" name="q9" value="correct"> Bombay Castle</label><br>
+                <label><input type="radio" name="q9" value="wrong"> Bandra Fort (Castella de Aguada)</label><br>
+                <label><input type="radio" name="q9" value="wrong"> Sewri Fort</label>
+            </div>
+
+            <div class="quiz-q">
+                <p><strong>10. The Asiatic Society of Mumbai Town Hall was completed in which decade?</strong></p>
+                <label><input type="radio" name="q10" value="wrong"> 1800s</label><br>
+                <label><input type="radio" name="q10" value="correct"> 1830s</label><br>
+                <label><input type="radio" name="q10" value="wrong"> 1860s</label>
+            </div>
+
+            <button type="button" onclick="calculateScore()" class="btn-primary" style="margin-top: 1rem;">Submit Quiz</button>
+        </form>
+
+        <div id="quizResult" style="display: none; margin-top: 2rem; padding: 2rem; background: #e2f0d9; border: 1px solid #c5e0b4; border-radius: 4px;">
+            <h3 style="color: #385723;">Quiz Completed!</h3>
+            <p style="font-size: 1.2rem; margin-top: 0.5rem;">Your score is: <strong id="scoreDisplay">0</strong> / 10</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const data = new FormData(form);
+            
+            for (let i = 1; i <= 10; i++) {
+                if (data.get('q' + i) === 'correct') {
+                    score++;
+                }
+            }
+            
+            form.style.display = 'none';
+            document.getElementById('scoreDisplay').innerText = score;
+            document.getElementById('quizResult').style.display = 'block';
+        }
+
+        const currentPage = window.location.pathname.split('/').pop() || 'games.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.style.textDecoration = 'underline';
+                link.style.opacity = '0.75';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mumbai Portal - About Us</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <nav>
+        <a href="1.html">Home</a>
+        <a href="2.html">About Us</a>
+        <a href="3.html">Contact</a>
+        <a href="weather.html">Weather</a>
+        <a href="reports.html">Reports</a>
+        <a href="games.html">Games</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <div class="container">
+        <h2>About MumbaiConnect</h2>
+        <p>MumbaiConnect is a smart city citizen portal dedicated to the residents of Mumbai. Our aim is to bridge the gap between citizens and local administration by providing real-time data, quick access to civic services, and a unified platform for community engagement.</p>
+
+        <h2 style="margin-top: 3rem;">Meet the Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="photo-placeholder"></div>
+                <h3>Advait</h3>
+            </div>
+            <div class="team-card">
+                <div class="photo-placeholder"></div>
+                <h3>Shlok</h3>
+            </div>
+            <div class="team-card">
+                <div class="photo-placeholder"></div>
+                <h3>Ayaan</h3>
+            </div>
+            <div class="team-card">
+                <div class="photo-placeholder"></div>
+                <h3>Shubham</h3>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h2>Tech Stack</h2>
+            <p>HTML5, CSS3, JavaScript, Figma</p>
+        </div>
+
+        <div class="timeline">
+            <h2>Project Timeline</h2>
+            <ul>
+                <li><strong>Phase 1:</strong> Initial Planning and Figma Wireframing</li>
+                <li><strong>Phase 2:</strong> Core HTML/CSS Structure Setup</li>
+                <li><strong>Phase 3:</strong> Interactive Elements and JavaScript Integration</li>
+                <li><strong>Phase 4:</strong> Final Deployment for Borivali Ward</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const currentPage = window.location.pathname.split('/').pop() || '2.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.style.textDecoration = 'underline';
+                link.style.opacity = '0.75';
+            }
+        });
+    </script>
+</body>
+</html>

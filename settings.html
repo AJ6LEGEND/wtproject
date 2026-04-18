@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mumbai Portal - Settings</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <nav>
+        <a href="1.html">Home</a>
+        <a href="2.html">About Us</a>
+        <a href="3.html">Contact</a>
+        <a href="weather.html">Weather</a>
+        <a href="reports.html">Reports</a>
+        <a href="games.html">Games</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <div class="container">
+        <h2>Account Settings</h2>
+        <p style="color: #666; margin-bottom: 2rem;">Manage your MumbaiConnect profile and preferences.</p>
+
+        <form class="basic-form" id="settingsForm">
+            <label>Profile Photo</label>
+            <input type="file" accept="image/jpeg, image/png">
+
+            <label>Display Name</label>
+            <input type="text" value="Advait" required>
+
+            <label>Email Address</label>
+            <input type="email" value="advait@mumbaiconnect.in" required>
+
+            <div class="toggle-group">
+                <input type="checkbox" id="notifToggle" checked>
+                <label for="notifToggle" style="margin-left: 0.5rem;">Enable Push Notifications</label>
+            </div>
+
+            <button type="submit" class="btn-primary">Save Changes</button>
+        </form>
+
+        <div class="success-msg" id="saveMsg" style="display:none; margin-bottom: 2rem;">
+            ✅ Settings saved successfully.
+        </div>
+
+        <hr style="margin: 3rem 0; border: 1px solid #ddd;">
+
+        <h2>Account Management</h2>
+        <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+            <button class="btn-secondary">Add / Switch Account</button>
+            <button class="btn-danger">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('settingsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('saveMsg').style.display = 'block';
+            setTimeout(() => document.getElementById('saveMsg').style.display = 'none', 3000);
+        });
+
+        const currentPage = window.location.pathname.split('/').pop() || 'settings.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.style.textDecoration = 'underline';
+                link.style.opacity = '0.75';
+            }
+        });
+    </script>
+</body>
+</html>

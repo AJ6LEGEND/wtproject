@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mumbai Portal - Weather</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <nav>
+        <a href="1.html">Home</a>
+        <a href="2.html">About Us</a>
+        <a href="3.html">Contact</a>
+        <a href="weather.html">Weather</a>
+        <a href="reports.html">Reports</a>
+        <a href="games.html">Games</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <div class="container">
+        <h2>Mumbai Weather</h2>
+        
+        <div class="weather-widget">
+            <div class="current-weather">
+                <div class="temp-block">
+                    <h1>32°C</h1>
+                    <p>🌤️ Partly Cloudy</p>
+                </div>
+                <div class="details-grid">
+                    <div>
+                        <strong>Feels Like</strong>
+                        <p>36°C</p>
+                    </div>
+                    <div>
+                        <strong>Humidity</strong>
+                        <p>75%</p>
+                    </div>
+                    <div>
+                        <strong>Wind</strong>
+                        <p>14 km/h SW</p>
+                    </div>
+                    <div>
+                        <strong>UV Index</strong>
+                        <p>8 (Very High)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 3rem; margin-bottom: 1rem;">7-Day Forecast</h3>
+        <div class="forecast-strip">
+            <div class="forecast-day">
+                <h4>Mon</h4>
+                <p>☀️</p>
+                <p>33° / 27°</p>
+            </div>
+            <div class="forecast-day">
+                <h4>Tue</h4>
+                <p>⛅</p>
+                <p>32° / 26°</p>
+            </div>
+            <div class="forecast-day">
+                <h4>Wed</h4>
+                <p>🌧️</p>
+                <p>29° / 25°</p>
+            </div>
+            <div class="forecast-day">
+                <h4>Thu</h4>
+                <p>🌧️</p>
+                <p>28° / 25°</p>
+            </div>
+            <div class="forecast-day">
+                <h4>Fri</h4>
+                <p>⛅</p>
+                <p>30° / 26°</p>
+            </div>
+            <div class="forecast-day">
+                <h4>Sat</h4>
+                <p>☀️</p>
+                <p>31° / 27°</p>
+            </div>
+            <div class="forecast-day">
+                <h4>Sun</h4>
+                <p>☀️</p>
+                <p>32° / 27°</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentPage = window.location.pathname.split('/').pop() || 'weather.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.style.textDecoration = 'underline';
+                link.style.opacity = '0.75';
+            }
+        });
+    </script>
+</body>
+</html>

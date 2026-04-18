@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mumbai Portal - Home</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <nav>
+        <a href="1.html">Home</a>
+        <a href="2.html">About Us</a>
+        <a href="3.html">Contact</a>
+        <a href="weather.html">Weather</a>
+        <a href="reports.html">Reports</a>
+        <a href="games.html">Games</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <header class="hero">
+        <h1>MumbaiConnect</h1>
+        <p>The beating heart of the city, now at your fingertips.</p>
+        <p id="live-clock" style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.85;"></p>
+    </header>
+
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>21.3M</h3>
+            <p>Population</p>
+        </div>
+        <div class="stat-item">
+            <h3>112</h3>
+            <p>AQI Today</p>
+        </div>
+        <div class="stat-item">
+            <h3>430</h3>
+            <p>Active Complaints</p>
+        </div>
+        <div class="stat-item">
+            <h3>45</h3>
+            <p>Events This Week</p>
+        </div>
+    </section>
+
+    <section class="shortcuts">
+        <a href="error.html" class="tile">🗺️ City Map</a>
+        <a href="weather.html" class="tile">🌤️ Weather</a>
+        <a href="error.html" class="tile">📄 DigiDocs</a>
+        <a href="games.html" class="tile">🎮 Games</a>
+    </section>
+
+    <script>
+        function updateClock() {
+            const clock = document.getElementById('live-clock');
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Asia/Kolkata'
+            };
+            clock.textContent = now.toLocaleString('en-IN', options) + ' IST';
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        const currentPage = window.location.pathname.split('/').pop() || '1.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.style.textDecoration = 'underline';
+                link.style.opacity = '0.75';
+            }
+        });
+    </script>
+</body>
+</html>
