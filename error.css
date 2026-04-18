@@ -16,27 +16,12 @@ p{
     color: white;
     text-align: center;
     font-size: 20px;
-    font-family: 'Poppins', sans-serif; /*manually type in the new font name and 
-    No, it depends on the font. There are 3 main categories:
-
-- **Sans-serif** — clean, no little feet on letters (Poppins, Inter, Bebas Neue)
-- **Serif** — has little feet/strokes (Times New Roman, Playfair Display)
-- **Monospace** — equal spacing, code-style (Courier, Roboto Mono)
-
-The part after the comma is just a **fallback** — if Google Fonts fails to load for some reason, the browser uses that instead. So you match the fallback to the category of your chosen font:
-
-```css
-font-family: 'Poppins', sans-serif;      Poppins is sans-serif
-font-family: 'Playfair Display', serif;  Playfair is serif
-font-family: 'Roboto Mono', monospace;   Roboto Mono is monospace
-```
-
-Google Fonts actually tells you which category a font belongs to right on the font's page, so you always know which fallback to write.*/
+    font-family: 'Poppins', sans-serif; 
 }
 button{
     margin-left: auto;
     margin-right: auto;
-    display: block; /*needed when centralizing, auto means to make it centre works only horizontally though*/
+    display: block; 
     font-size: 15px;
     background-color: black;
     color: aqua;

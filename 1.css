@@ -174,9 +174,7 @@ nav a {
   font-weight: bold;
   cursor: pointer;
 }
-/* --- Added for New Pages --- */
 
-/* Basic Form Styles (Used in Settings & Reports) */
 .basic-form {
   display: flex;
   flex-direction: column;
