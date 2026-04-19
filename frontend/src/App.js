@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Added useState and useEffect
+import React, {useState} from 'react'; // Added useState
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 // Global Styles
