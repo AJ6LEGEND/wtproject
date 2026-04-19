@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# 🏙️ Mumbai Connect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mumbai Connect is a full-stack web application designed to boost civic engagement. Citizens can use this platform to register accounts, view city metrics, and submit civic issue reports (like potholes, broken streetlights, or water leaks) directly to a centralized database.
 
-## Available Scripts
+## 📁 Project Structure
 
-In the project directory, you can run:
+This project is separated into two distinct environments:
+- **`frontend/`**: The React.js user interface (Runs on Port 3000)
+- **`backend/`**: The Node.js, Express, and MySQL server (Runs on Port 5000)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Before you begin, ensure you have the following installed on your computer:
+1. **[Node.js](https://nodejs.org/)** (v14 or higher)
+2. **MySQL Database** (and a GUI manager like MySQL Workbench or XAMPP)
+3. **Git**
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Step-by-Step Setup Guide
 
-### `npm run build`
+Follow these instructions exactly to get both the backend and frontend running on your local machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the Repository
+Open your terminal and run:
+`git clone https://github.com/YOUR_USERNAME/wtproject.git`
+`cd wtproject`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Database Setup (MySQL)
+You must create the database and its tables before the backend server can start. We have included an automated script to make this easy:
+1. Open **MySQL Workbench** and connect to your local server.
+2. Open the `backend/database.sql` file included in this project.
+3. Copy all the text inside `database.sql`, paste it into a new SQL query tab in Workbench.
+4. Click the **Lightning Bolt** ⚡ (or press `Ctrl + Enter`) to execute the code.
+5. *Verify:* Refresh your schemas. You should now see a database called `mumbai_connect` containing a `users` table and a `reports` table.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Backend Setup (The Server)
+Open a terminal inside the main project folder and navigate to the backend:
+`cd backend`
 
-### `npm run eject`
+Install all the required backend dependencies:
+`npm install`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Configure Environment Variables:**
+1. Inside the `backend` folder, locate the file named `.env.example`.
+2. Duplicate this file and rename the copy to exactly `.env` (make sure there is no `.txt` extension).
+3. Open your new `.env` file and update the `DB_PASSWORD` line with your personal local MySQL password. 
+   *(Note: If you do not use a password for your local MySQL, leave it completely blank after the equals sign).*
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Start the Server:**
+`node server.js`
+*✅ Success looks like: `✅ Connected to MySQL Database: mumbai_connect` and `🚀 Server running on http://localhost:5000`*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Frontend Setup (The User Interface)
+**Leave your backend terminal running!** Open a **second, new terminal window**, ensure you are in the main project folder, and navigate to the frontend:
+`cd frontend`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install all the required React dependencies:
+`npm install`
 
-## Learn More
+**Start the React App:**
+`npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*✅ This will automatically open your default web browser to `http://localhost:3000`. The frontend is now successfully communicating with your backend!*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🐛 Common Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **Error: "Access denied for user 'root'@'localhost'"** Your MySQL password in the `backend/.env` file is incorrect. Update it, save the file, and restart the backend server (`Ctrl + C` then `node server.js`).
+* **Error: "Unknown database 'mumbai_connect'"** You skipped Step 2. Open MySQL Workbench and run the code inside the `database.sql` file.
+* **Website shows "Failed to fetch" or "Network Error" when logging in** Your backend server is not running. Ensure you have **two** terminal windows open concurrently—one running `node server.js` in the backend folder, and one running `npm start` in the frontend folder.

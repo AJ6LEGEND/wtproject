@@ -23,4 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
-backend/uploads/
+
+# Ignore uploaded test images but keep the folders
+backend/uploads/**/*.jpg
+backend/uploads/**/*.jpeg
+backend/uploads/**/*.png
