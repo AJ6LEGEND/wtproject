@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import axios from 'axios'; // Import axios for backend connection
 import './WT1.css';
 
-const Reports = () => {
+const Reports = ({ user }) => { // Receiving user prop from App.js
   const [submitted, setSubmitted] = useState(false);
   const [ticketNum, setTicketNum] = useState('');
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     category: '',
     location: '',
@@ -20,7 +21,6 @@ const Reports = () => {
     } else {
       setFormData({ ...formData, [id]: value });
     }
-    // Clear error for that field as user types
     setErrors((prev) => ({ ...prev, [id]: '' }));
   };
 
@@ -35,22 +35,42 @@ const Reports = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    const randomId = Math.floor(Math.random() * 90000) + 10000;
-    setTicketNum('BMC-' + randomId);
-    setSubmitted(true);
+
+    setLoading(true);
+
+    try {
+      // Use FormData to handle the image file upload
+      const data = new FormData();
+      data.append('user_id', user?.id); // Link to logged-in user
+      data.append('category', formData.category);
+      data.append('location', formData.location);
+      data.append('description', formData.description);
+      if (formData.photo) {
+        data.append('photo', formData.photo);
+      }
+
+      const response = await axios.post('http://localhost:5000/api/reports', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+
+      setTicketNum(response.data.ticketNumber);
+      setSubmitted(true);
+    } catch (err) {
+      setErrors({ server: 'Failed to submit report. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="reports-wrapper">
-
-
       <div className="container">
         <h2>Report a Civic Issue</h2>
         <p style={{ marginBottom: '2rem' }}>
@@ -111,14 +131,23 @@ const Reports = () => {
               onChange={handleChange}
             />
 
-            <button type="submit" className="btn-primary">Submit Report</button>
+            {errors.server && (
+              <p style={{ color: 'red', fontSize: '0.85rem', marginBottom: '1rem' }}>
+                ⚠️ {errors.server}
+              </p>
+            )}
+
+            <button type="submit" className="btn-primary" disabled={loading}>
+              {loading ? 'Submitting...' : 'Submit Report'}
+            </button>
           </form>
         ) : (
           <div className="ticket-msg">
             <h3>✅ Report Submitted!</h3>
             <p>Your tracking ticket number is: <strong>{ticketNum}</strong></p>
             <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>
-              Please save this number for future reference.
+              Please save this number for future reference. 
+              Our ground team will inspect the site soon.
             </p>
           </div>
         )}

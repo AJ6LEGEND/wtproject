@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'; // Added useState and useEffect
+import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 // Global Styles
 import './WT1.css'; 
-import './index.css'; // Keeping this if you have standard React boiler plate styles here
+import './index.css'; 
 
 // Import all your components
 import Home from './1';           
@@ -28,6 +28,18 @@ import Transport from './transport';
 import ErrorPage from './error';
 
 function App() {
+  // Initialize user from localStorage so they stay logged in on refresh
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
+  // Function to handle logout
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+  };
+
   return (
     <Router>
       <div className="App page-wrapper">
@@ -75,9 +87,18 @@ function App() {
 
           {/* User Account Dropdown */}
           <div className="dropdown">
-            <span className="nav-label">Account ▾</span>
+            <span className="nav-label">
+              {user ? `Hi, ${user.name} ▾` : 'Account ▾'}
+            </span>
             <div className="dropdown-content">
-              <NavLink to="/settings">Settings</NavLink>
+              {user ? (
+                <>
+                  <NavLink to="/settings">Settings</NavLink>
+                  <button onClick={handleLogout} className="logout-btn">Logout</button>
+                </>
+              ) : (
+                <NavLink to="/login">Login / Register</NavLink>
+              )}
             </div>
           </div>
         </nav>
@@ -92,15 +113,24 @@ function App() {
           
           {/* Feature Pages */}
           <Route path="/weather" element={<Weather />} />
-          <Route path="/reports" element={<Reports />} />
+          
+          {/* Passed 'user' to Reports so complaints are linked to their account */}
+          <Route path="/reports" element={user ? <Reports user={user} /> : <Navigate to="/login" />} />
+          
           <Route path="/games" element={<Games />} />
-          <Route path="/settings" element={<Settings />} />
+          
+          {/* Passed 'user' and 'setUser' to Settings for profile updates */}
+          <Route path="/settings" element={user ? <Settings user={user} setUser={setUser} /> : <Navigate to="/login" />} />
+          
           <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/news" element={<News />} />
           <Route path="/healthcare" element={<Healthcare />} />
-          <Route path="/digidocs"       element={<DigiDocs />} />
-          <Route path="/login"          element={<Login />} />
-          <Route path="/environment"  element={<Environment />} />
+          <Route path="/digidocs" element={<DigiDocs />} />
+          
+          {/* Passed 'setUser' to Login so it can update the global state */}
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          
+          <Route path="/environment" element={<Environment />} />
           <Route path="/safety" element={<PublicSafety />} />
           <Route path="/map" element={<CityMap />} />
           <Route path="/education" element={<Education />} />

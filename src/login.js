@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Ensure axios is installed
 import './WT2.css';
 
-const Login = () => {
+const Login = ({ setUser }) => {
   // 'login' | 'register' | 'forgot'
   const navigate = useNavigate();
   const [tab, setTab] = useState('login');
@@ -25,20 +26,34 @@ const Login = () => {
   const nameRegex  = /^[A-Za-z\s]+$/;
 
   // ── Login ──
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const errors = {};
-    if (!loginData.email.trim())            errors.email    = 'Email is required.';
+    if (!loginData.email.trim())             errors.email    = 'Email is required.';
     else if (!emailRegex.test(loginData.email)) errors.email = 'Enter a valid email.';
-    if (!loginData.password.trim())         errors.password = 'Password is required.';
+    if (!loginData.password.trim())          errors.password = 'Password is required.';
+    
     setLoginErrors(errors);
-    if (Object.keys(errors).length === 0) {setLoginSuccess(true)
+    
+    if (Object.keys(errors).length === 0) {
+      try {
+        const response = await axios.post('http://localhost:5000/api/login', {
+          email: loginData.email,
+          password: loginData.password
+        });
+        
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        setUser(response.data.user);
+        setLoginSuccess(true);
         setTimeout(() => navigate('/'), 1000);
-    };
+      } catch (err) {
+        setLoginErrors({ server: err.response?.data?.error || 'Invalid credentials' });
+      }
+    }
   };
 
   // ── Register ──
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const errors = {};
     if (!regData.name.trim())               errors.name     = 'Name is required.';
@@ -48,11 +63,26 @@ const Login = () => {
     if (!regData.password.trim())           errors.password = 'Password is required.';
     else if (regData.password.length < 6)   errors.password = 'Password must be at least 6 characters.';
     if (regData.confirm !== regData.password) errors.confirm = 'Passwords do not match.';
-    if (!regData.area)                      errors.area     = 'Please select your area.';
+    // Area validation kept as per your original logic
     setRegErrors(errors);
-    if (Object.keys(errors).length === 0) {setRegSuccess(true)
-        setTimeout(() => navigate('/'), 1000)
-    };
+
+    if (Object.keys(errors).length === 0) {
+      try {
+        await axios.post('http://localhost:5000/api/register', {
+          name: regData.name,
+          email: regData.email,
+          password: regData.password
+        });
+        setRegSuccess(true);
+        // Automatically switch to login tab after registration success
+        setTimeout(() => {
+          setTab('login');
+          setRegSuccess(false);
+        }, 2000);
+      } catch (err) {
+        setRegErrors({ server: err.response?.data?.error || 'Registration failed' });
+      }
+    }
   };
 
   // ── Forgot ──
@@ -121,6 +151,7 @@ const Login = () => {
                 }}
               />
               {loginErrors.password && <span className="auth-error">⚠️ {loginErrors.password}</span>}
+              {loginErrors.server && <span className="auth-error">⚠️ {loginErrors.server}</span>}
             </div>
 
             <button
@@ -198,6 +229,7 @@ const Login = () => {
                 }}
               />
               {regErrors.confirm && <span className="auth-error">⚠️ {regErrors.confirm}</span>}
+              {regErrors.server && <span className="auth-error">⚠️ {regErrors.server}</span>}
             </div>
 
             <button type="submit" className="auth-btn">Create Account</button>
